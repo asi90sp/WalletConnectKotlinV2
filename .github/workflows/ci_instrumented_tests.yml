@@ -34,12 +34,13 @@ jobs:
       fail-fast: false
       matrix:
         conf: [
-          { name: 'Sign_SDK', command: ":protocol:sign:allDevicesCheck"},
-          { name: 'Android_Core_SDK', command: ":core:android:allDevicesCheck"},
+          { name: 'Sign_SDK', command: ":protocol:sign:allDevicesCheck" },
+          { name: 'Android_Core_SDK', command: ":core:android:allDevicesCheck" },
         ]
 
     name: ${{ matrix.conf.name }}
     runs-on: self-hosted
+    concurrency: m1-environment
     steps:
       - uses: actions/checkout@v3
 
